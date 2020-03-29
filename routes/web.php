@@ -14,3 +14,10 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('chat/create', 'ChatController@add')->middleware('auth');
+Route::post('chat/create', 'ChatController@create')->middleware('auth');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
