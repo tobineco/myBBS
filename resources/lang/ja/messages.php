@@ -12,4 +12,5 @@ return [
     'Confirm Password' => 'パスワード再入力(確認)',
     'Logout' => 'ログアウト',
     'Reset Password' => 'パスワード再設定',
+    
     ];

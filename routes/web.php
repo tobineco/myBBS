@@ -20,4 +20,6 @@ Route::post('chat/create', 'ChatController@create')->middleware('auth');
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('chat/index', 'ChatController@index')->middleware('auth');
+
+Route::get('/home', 'ChatController@index')->name('home');

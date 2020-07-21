@@ -7,7 +7,11 @@
     <div class="container">
         <div class="row">
             <div class="col-md-8 mx-auto">
-                <h2>チャット新規作成</h2>
+                <h3>チャット新規作成</h3>
+                
+                <div class="form-group row">
+                </div>
+                
                 <form action="{{ action('ChatController@create') }}" method="post" enctype="multipart/form-data">
 
                     @if (count($errors) > 0)
@@ -17,16 +21,21 @@
                             @endforeach
                         </ul>
                     @endif
+                    
                     <div class="form-group row">
-                        <label class="col-md-2">タイトル</label>
-                        <div class="col-md-10">
-                            <input type="text" class="form-control" name="title" value="{{ old('title') }}">
+                        <label class="col-md-3">ニックネーム：</label>
+                        <div class="col-md-2">
+                            
+                        <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">
+                            
+                            <h5> {{ Auth::user()->name }} </h5>
                         </div>
                     </div>
+                    
                     <div class="form-group row">
-                        <label class="col-md-2">本文</label>
+                        <label class="col-md-3">本文：</label>
                         <div class="col-md-10">
-                            <textarea class="form-control" name="body" rows="20">{{ old('body') }}</textarea>
+                            <textarea class="form-control" name="body" rows="15">{{ old('body') }}</textarea>
                         </div>
                     </div>
                     

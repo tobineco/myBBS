@@ -36,4 +36,13 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+    
+   // public static $rules = array(
+   //    'name' => 'required|unique',
+   // );
+    
+    public function chats()
+    {
+        return $this->hasMany('App\Chat'); 
+    }
 }

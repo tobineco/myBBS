@@ -1,12 +1,12 @@
 body {
   background-repeat: no-repeat;
   background-position: center;
-  background-color: #8ae6b5;
-  color: #3d6650;
+  background-color: #f3f3f2;
+  color: #664033;
 }
 
 .navbar-laravel {
-  background-color: #38b48b;
+  background-color: #44617b;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
 }
 
@@ -18,8 +18,26 @@ body {
   color: #fff !important;
 }
 
-.table-dark {
-  color: #fff;
+.row-space {
+  padding: 10px;
+}
+
+.table {
+  border-style: solid;
+  border-width: 2px;
+  border-color: #e0e0e0;
+}
+
+.table-bordered {
+  border-style: solid;
+  border-width: 2px;
+  border-color: #e0e0e0;
+}
+
+.table-light {
+  border-style: solid;
+  border-width: 2px;
+  border-color: #e0e0e0;
 }
 
 .list-group-item {
