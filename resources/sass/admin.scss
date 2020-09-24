@@ -2,7 +2,7 @@ body {
   background-repeat: no-repeat;
   background-position: center;
   background-color: #f3f3f2;
-  color: #664033;
+  color: #333333;
 }
 
 .navbar-laravel {
@@ -20,6 +20,10 @@ body {
 
 .row-space {
   padding: 10px;
+}
+
+.red {
+  color: red !important;
 }
 
 .table {

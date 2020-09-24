@@ -13,4 +13,5 @@ return [
     'Logout' => 'ログアウト',
     'Reset Password' => 'パスワード再設定',
     
+    'Verify Your Email Address' => 'メールアドレスを確認して下さい',
     ];

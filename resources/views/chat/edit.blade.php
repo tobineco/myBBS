@@ -1,18 +1,18 @@
 
 @extends('layouts.chatlayout')
 
-@section('title', 'HomeChat新規画面')
+@section('title', 'HomeChat編集画面')
 
 @section('content')
     <div class="container">
         <div class="row">
             <div class="col-md-8 mx-auto">
-                <h3>連絡の新規作成</h3>
+                <h3>連絡の編集画面</h3>
                 
                 <div class="form-group row">
                 </div>
                 
-                <form action="{{ action('ChatController@create') }}" method="post" enctype="multipart/form-data">
+                <form action="{{ action('ChatController@update') }}" method="post" enctype="multipart/form-data">
 
                     <div class="form-group row">
                         <label class="col-md-3">ニックネーム：</label>
@@ -27,7 +27,7 @@
                     <div class="form-group row">
                         <label class="col-md-3">本文（250字まで）：</label>
                         <div class="col-md-10">
-                            <textarea class="form-control" name="body" rows="15">{{ old('body') }}</textarea>
+                            <textarea class="form-control" name="body" rows="15">{{ $chat_form->body }}</textarea>
                         </div>
                     </div>
                     
@@ -38,6 +38,8 @@
                             @endforeach
                         </ul>
                     @endif
+                    
+                    <input type="hidden" name="id" value="{{ $chat_form->id }}">
                     
                     {{ csrf_field() }}
                     

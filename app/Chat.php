@@ -13,7 +13,7 @@ class Chat extends Model
      protected $guarded = array('id');
 
      public static $rules = array(
-         'body' => 'required',
+         'body' => 'required|max:250',
      );
 
     protected $dates = ['deleted_at'];
