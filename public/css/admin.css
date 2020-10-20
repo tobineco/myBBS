@@ -1,12 +1,12 @@
 body {
   background-repeat: no-repeat;
   background-position: center;
-  background-color: #f3f3f2;
+  background-color: #ffcccc;
   color: #333333;
 }
 
 .navbar-laravel {
-  background-color: #44617b;
+  background-color: #cc3366;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
 }
 

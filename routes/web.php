@@ -15,16 +15,42 @@
 //    return view('welcome');
 // });
 
-Route::get('/', 'ChatController@index')->middleware('auth');
+Route::group(['middleware' => 'auth:user'], function() {
+    Route::get('/', 'ChatController@index');
+    
+    Route::get('chat/create', 'ChatController@add');
+    Route::post('chat/create', 'ChatController@create');
+    Route::get('chat/edit', 'ChatController@edit');
+    Route::post('chat/edit', 'ChatController@update');
+    Route::get('chat/delete', 'ChatController@delete');
+    
+    Route::get('chat/index', 'ChatController@index');
+});
 
-Route::get('chat/create', 'ChatController@add')->middleware('auth');
-Route::post('chat/create', 'ChatController@create')->middleware('auth');
-Route::get('chat/edit', 'ChatController@edit')->middleware('auth');
-Route::post('chat/edit', 'ChatController@update')->middleware('auth');
-Route::get('chat/delete', 'ChatController@delete')->middleware('auth');
+/*
+|--------------------------------------------------------------------------
+|  Admin ログイン前　認証不要
+|--------------------------------------------------------------------------
+*/
+Route::group(['prefix' => 'admin'], function() {
+    Route::get('login', 'Admin\LoginController@showLoginForm')->name('admin.login');
+    Route::post('login', 'Admin\LoginController@login');
+});
+ 
+/*
+|--------------------------------------------------------------------------
+|  Admin ログイン後
+|--------------------------------------------------------------------------
+*/
+Route::group(['prefix' => 'admin', 'middleware' => 'auth:admin'], function() {
+    Route::get('/', 'AdminController@index');
+    Route::get('/index', 'AdminController@index');
+    Route::get('/edit', 'AdminController@edit');
+    Route::post('/edit', 'AdminController@update');
+    Route::get('/delete', 'AdminController@delete');
+    Route::post('logout', 'Admin\LoginController@logout')->name('admin.logout');
+});
 
 Auth::routes();
-
-Route::get('chat/index', 'ChatController@index')->middleware('auth');
 
 // Route::get('/home', 'ChatController@index')->name('home');
